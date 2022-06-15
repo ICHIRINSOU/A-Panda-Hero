@@ -1,0 +1,271 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #c8e8e5;
+}
+
+.pandaWrapper {
+  flex-flow: column wrap;
+  place-content: center;
+  padding-top: 400px;
+  display: flex;
+}
+
+.shadow {
+  width: 450px;
+  height: 100px;
+  z-index: -5;
+  background-color: #8a949f;
+  border-radius: 20em / 5em;
+  margin-top: -50px;
+}
+
+.panda {
+  position: relative;
+}
+
+.head {
+  width: 200px;
+  height: 150px;
+  z-index: 0;
+  background-color: #f5f5f5;
+  border: 4px solid #000;
+  border-radius: 15em / 12em;
+  position: relative;
+  left: 50px;
+  transform: rotate(-45deg);
+}
+
+.leftEar, .rightEar {
+  width: 60px;
+  height: 60px;
+  clip-path: polygon(0% 0%, 50% 0%, 100% 0%, 100% 180%);
+  background-color: #1a1a1a;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.leftEar {
+  z-index: -1;
+  top: 45px;
+  left: 37px;
+  transform: rotate(-130deg);
+}
+
+.rightEar {
+  z-index: -1;
+  bottom: 128px;
+  left: 135px;
+  transform: rotate(-80deg);
+}
+
+@keyframes earMove {
+}
+
+.rightEye {
+  width: 40px;
+  height: 60px;
+  background-color: #1a1a1a;
+  border-radius: 50% / 60% 60% 40% 40%;
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 120px;
+  transform: rotate(-30deg);
+}
+
+.leftEye {
+  width: 40px;
+  height: 60px;
+  background-color: #1a1a1a;
+  border-radius: 50% / 60% 60% 40% 40%;
+  display: block;
+  position: relative;
+  bottom: 15px;
+  left: 40px;
+  transform: rotate(30deg);
+}
+
+.leftEye:before, .rightEye:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  clip-path: polygon(50% 0%, 100% 0%, 100% 3600%, 50% 50%);
+  border: 7px solid #fff;
+  border-radius: 50px;
+  animation: eyesBlink 4s linear infinite;
+  display: block;
+  position: relative;
+  top: 15px;
+  left: 5px;
+  transform: rotate(50deg);
+}
+
+@keyframes eyesBlink {
+  0%, 100% {
+    border: 7px solid #fff;
+  }
+
+  50% {
+    border: 7px solid #000;
+  }
+}
+
+.rightEye:before {
+  transform: rotate(120deg);
+}
+
+.cheek {
+  width: 72px;
+  height: 25px;
+  background-color: #f5f5f5;
+  border-top: 3px solid #000;
+  border-radius: 100% 100% 0 0;
+  position: absolute;
+  top: 92px;
+  left: 10px;
+  transform: rotate(45deg);
+}
+
+.nose {
+  width: 6px;
+  height: 0;
+  border-top: 10px solid #1a1a1a;
+  border-left: 10px solid #0000;
+  border-right: 7px solid #0000;
+  border-radius: 50%;
+  position: relative;
+  bottom: 30px;
+  left: 90px;
+}
+
+.mouth {
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  top: 90px;
+  left: 32%;
+}
+
+.mouth:before, .mouth:after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: none;
+  border-bottom: 3px solid #000;
+  display: block;
+  position: absolute;
+}
+
+.mouth:before {
+  border-right: 2px solid #000;
+  border-bottom-right-radius: 400px 500px;
+  right: 15px;
+  transform: rotate(70deg);
+}
+
+.mouth:after {
+  border-left: 2px solid #000;
+  border-bottom-left-radius: 400px 500px;
+  left: 20px;
+  transform: rotate(-70deg);
+}
+
+.body {
+  width: 215px;
+  height: 170px;
+  z-index: -1;
+  background-color: #f5f5f5;
+  border: 4px solid #000;
+  border-radius: 50px 170px;
+  position: absolute;
+  top: -10px;
+  left: 30%;
+  transform: rotate(180deg);
+}
+
+.body:before {
+  content: "";
+  width: 130px;
+  height: 150px;
+  background-color: #1a1a1a;
+  border-radius: 55px 140px;
+  display: block;
+  position: absolute;
+  top: 6px;
+  left: 70px;
+  transform: rotate(-140deg);
+}
+
+.rightHand, .leftHand, .leg {
+  background-color: #1a1a1a;
+  border: 4px solid #000;
+  border-radius: 50% 40%;
+  position: absolute;
+}
+
+.rightHand {
+  width: 70px;
+  height: 50px;
+  border-right: none;
+  margin-top: -30px;
+  animation: handMove 2s infinite;
+  left: 35%;
+  transform: rotate(-10deg);
+}
+
+@keyframes handMove {
+  0%, 100% {
+    margin-top: -30px;
+    transform: rotate(-10deg);
+  }
+
+  50% {
+    margin-top: -35px;
+    transform: rotate(-5deg);
+  }
+}
+
+.leftHand {
+  width: 70px;
+  height: 50px;
+  z-index: -4;
+  border-right: none;
+  border-radius: 50% 40%;
+  margin-top: -40px;
+  left: 10%;
+}
+
+.leg {
+  width: 80px;
+  height: 55px;
+  z-index: 1;
+  border-left: none;
+  margin-top: -40px;
+  left: 66%;
+  transform: rotate(10deg);
+}
+
+@keyframes legMove {
+  0% {
+    left: 66%;
+  }
+
+  50% {
+    left: 65%;
+  }
+
+  100% {
+    left: 66%;
+  }
+}
+
+.leg:hover {
+  animation: legMove 2s infinite;
+}
+
+/*# sourceMappingURL=index.a28ceb09.css.map */
